@@ -1,5 +1,7 @@
 package com.delivery.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +52,20 @@ public class UsuarioResource {
 			Usuario usuarioAutenticado = service.autenticar(dto.getEmail(), dto.getSenha());
 			return new ResponseEntity(usuarioAutenticado,HttpStatus.OK);
 		} catch (ErroAutenticacao e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+		
+	}
+	
+	@PostMapping("/listar")
+	public ResponseEntity listarUsuarios() {
+		
+		
+		try {
+			
+			List<Usuario> usuarios = service.listarUSuarios();
+			return new ResponseEntity(usuarios,HttpStatus.OK);
+		} catch (Error e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 		

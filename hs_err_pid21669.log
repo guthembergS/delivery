@@ -1,0 +1,260 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f5c56e4c0ad, pid=21669, tid=23851
+#
+# JRE version: OpenJDK Runtime Environment (11.0.8+10) (build 11.0.8+10-post-Ubuntu-0ubuntu120.04)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.8+10-post-Ubuntu-0ubuntu120.04, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x30ad]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/lib/systemd/systemd-coredump %P %u %g %s %t 9223372036854775808 %h" (or dumping to /home/guthemberg/Documents/react-estudo/delivery/core.21669)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:42131 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=33155 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -Xverify:none -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=delivery -javaagent:/home/guthemberg/sts-4.6.1.RELEASE/configuration/org.eclipse.osgi/239/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.delivery.DeliveryApplication --spring.output.ansi.enabled=always
+
+Host: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz, 4 cores, 7G, Linux Mint 20 Ulyana
+Time: Wed Sep 23 14:04:50 2020 -03 elapsed time: 1448 seconds (0d 0h 24m 8s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f5be8005000):  JavaThread "RMI TCP Connection(35)-127.0.0.1" daemon [_thread_in_vm, id=23851, stack(0x00007f5c28079000,0x00007f5c2817a000)]
+
+Stack: [0x00007f5c28079000,0x00007f5c2817a000],  sp=0x00007f5c28171e30,  free space=995k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x30ad]
+C  [libjimage.so+0x3da2]
+C  [libjimage.so+0x42b1]  JIMAGE_FindResource+0xf1
+V  [libjvm.so+0x57f201]
+V  [libjvm.so+0x5819b1]
+V  [libjvm.so+0xcec03d]
+V  [libjvm.so+0xceabca]
+V  [libjvm.so+0xced18b]
+V  [libjvm.so+0x62f46e]
+V  [libjvm.so+0x81bac6]
+j  java.util.AbstractMap.values()Ljava/util/Collection;+9 java.base@11.0.8
+j  org.springframework.orm.hibernate5.SpringBeanContainer.stop()V+4
+j  org.hibernate.resource.beans.internal.ManagedBeanRegistryImpl.stop()V+11
+j  org.hibernate.service.internal.AbstractServiceRegistryImpl.stopService(Lorg/hibernate/service/spi/ServiceBinding;)V+19
+j  org.hibernate.service.internal.AbstractServiceRegistryImpl.destroy()V+71
+j  org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$ServiceRegistryCloser.sessionFactoryClosed(Lorg/hibernate/SessionFactory;)V+11
+j  org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryClosed(Lorg/hibernate/SessionFactory;)V+40
+j  org.hibernate.internal.SessionFactoryImpl.close()V+213
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x824499]
+V  [libjvm.so+0xc267d1]
+V  [libjvm.so+0xc270e4]
+V  [libjvm.so+0x8d6de0]  JVM_InvokeMethod+0x140
+J 2817  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39483dc0 [0x00007f5c39483cc0+0x0000000000000100]
+J 2816 c1 jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (104 bytes) @ 0x00007f5c39484594 [0x00007f5c394841a0+0x00000000000003f4]
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+158
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+98
+j  com.sun.proxy.$Proxy79.close()V+9
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy()V+61
+j  org.springframework.beans.factory.support.DisposableBeanAdapter.destroy()V+140
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(Ljava/lang/String;Lorg/springframework/beans/factory/DisposableBean;)V+135
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(Ljava/lang/String;)V+41
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(Ljava/lang/String;)V+2
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons()V+106
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons()V+1
+j  org.springframework.context.support.AbstractApplicationContext.destroyBeans()V+4
+j  org.springframework.context.support.AbstractApplicationContext.doClose()V+130
+j  org.springframework.context.support.AbstractApplicationContext.close()V+8
+j  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown()V+17
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x824499]
+V  [libjvm.so+0xc267d1]
+V  [libjvm.so+0xc270e4]
+V  [libjvm.so+0x8d6de0]  JVM_InvokeMethod+0x140
+J 2817  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39483dc0 [0x00007f5c39483cc0+0x0000000000000100]
+J 2816 c1 jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (104 bytes) @ 0x00007f5c39484594 [0x00007f5c394841a0+0x00000000000003f4]
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.reflect.misc.Trampoline.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+7
+j  jdk.internal.reflect.GeneratedMethodAccessor54.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+40
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.reflect.misc.MethodUtil.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+20 java.base@11.0.8
+j  com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+42 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+12 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+8 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+9 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+6 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.PerInterface.invoke(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;+202 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MBeanSupport.invoke(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+15 java.management@11.0.8
+j  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+28 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+13 java.management@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.doOperation(I[Ljava/lang/Object;)Ljava/lang/Object;+370 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run()Ljava/lang/Object;+12 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(I[Ljava/lang/Object;Ljavax/security/auth/Subject;)Ljava/lang/Object;+79 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.invoke(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;+131 java.management.rmi@11.0.8
+j  jdk.internal.reflect.GeneratedMethodAccessor53.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+72 java.base@11.0.8
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.rmi.server.UnicastServerRef.dispatch(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V+264 java.rmi@11.0.8
+j  sun.rmi.transport.Transport$1.run()Ljava/lang/Void;+23 java.rmi@11.0.8
+j  sun.rmi.transport.Transport$1.run()Ljava/lang/Object;+1 java.rmi@11.0.8
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x824499]
+V  [libjvm.so+0x8d9bf8]  JVM_DoPrivileged+0x548
+J 4907  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39828c28 [0x00007f5c39828b40+0x00000000000000e8]
+j  sun.rmi.transport.Transport.serviceCall(Ljava/rmi/server/RemoteCall;)Z+157 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport.handleMessages(Lsun/rmi/transport/Connection;Z)V+145 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0()V+490 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0()Ljava/lang/Void;+1 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$91.run()Ljava/lang/Object;+4 java.rmi@11.0.8
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x824499]
+V  [libjvm.so+0x8d9bf8]  JVM_DoPrivileged+0x548
+J 4935  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39838728 [0x00007f5c39838640+0x00000000000000e8]
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run()V+37 java.rmi@11.0.8
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+92 java.base@11.0.8
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5 java.base@11.0.8
+j  java.lang.Thread.run()V+11 java.base@11.0.8
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x824499]
+V  [libjvm.so+0x822aee]
+V  [libjvm.so+0x8cbb81]
+V  [libjvm.so+0xd22dcf]
+V  [libjvm.so+0xd1f430]
+V  [libjvm.so+0xb8f706]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.util.AbstractMap.values()Ljava/util/Collection;+9 java.base@11.0.8
+j  org.springframework.orm.hibernate5.SpringBeanContainer.stop()V+4
+j  org.hibernate.resource.beans.internal.ManagedBeanRegistryImpl.stop()V+11
+j  org.hibernate.service.internal.AbstractServiceRegistryImpl.stopService(Lorg/hibernate/service/spi/ServiceBinding;)V+19
+j  org.hibernate.service.internal.AbstractServiceRegistryImpl.destroy()V+71
+j  org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl$ServiceRegistryCloser.sessionFactoryClosed(Lorg/hibernate/SessionFactory;)V+11
+j  org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryClosed(Lorg/hibernate/SessionFactory;)V+40
+j  org.hibernate.internal.SessionFactoryImpl.close()V+213
+v  ~StubRoutines::call_stub
+J 2817  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39483d47 [0x00007f5c39483cc0+0x0000000000000087]
+J 2816 c1 jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (104 bytes) @ 0x00007f5c39484594 [0x00007f5c394841a0+0x00000000000003f4]
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.invokeProxyMethod(Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+158
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean$ManagedEntityManagerFactoryInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+98
+j  com.sun.proxy.$Proxy79.close()V+9
+j  org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.destroy()V+61
+j  org.springframework.beans.factory.support.DisposableBeanAdapter.destroy()V+140
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(Ljava/lang/String;Lorg/springframework/beans/factory/DisposableBean;)V+135
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(Ljava/lang/String;)V+41
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(Ljava/lang/String;)V+2
+j  org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons()V+106
+j  org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons()V+1
+j  org.springframework.context.support.AbstractApplicationContext.destroyBeans()V+4
+j  org.springframework.context.support.AbstractApplicationContext.doClose()V+130
+j  org.springframework.context.support.AbstractApplicationContext.close()V+8
+j  org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown()V+17
+v  ~StubRoutines::call_stub
+J 2817  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39483d47 [0x00007f5c39483cc0+0x0000000000000087]
+J 2816 c1 jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (104 bytes) @ 0x00007f5c39484594 [0x00007f5c394841a0+0x00000000000003f4]
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.reflect.misc.Trampoline.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+7
+j  jdk.internal.reflect.GeneratedMethodAccessor54.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+40
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.reflect.misc.MethodUtil.invoke(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+20 java.base@11.0.8
+j  com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+42 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+12 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(Lcom/sun/jmx/mbeanserver/ConvertingMethod;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+8 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+9 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;+6 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.PerInterface.invoke(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;+202 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.MBeanSupport.invoke(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+15 java.management@11.0.8
+j  com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+28 java.management@11.0.8
+j  com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;+13 java.management@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.doOperation(I[Ljava/lang/Object;)Ljava/lang/Object;+370 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run()Ljava/lang/Object;+12 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(I[Ljava/lang/Object;Ljavax/security/auth/Subject;)Ljava/lang/Object;+79 java.management.rmi@11.0.8
+j  javax.management.remote.rmi.RMIConnectionImpl.invoke(Ljavax/management/ObjectName;Ljava/lang/String;Ljava/rmi/MarshalledObject;[Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/Object;+131 java.management.rmi@11.0.8
+j  jdk.internal.reflect.GeneratedMethodAccessor53.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+72 java.base@11.0.8
+J 2454 c1 jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (10 bytes) @ 0x00007f5c393a963c [0x00007f5c393a95c0+0x000000000000007c]
+J 2456 c1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; java.base@11.0.8 (65 bytes) @ 0x00007f5c393a9aa4 [0x00007f5c393a9960+0x0000000000000144]
+j  sun.rmi.server.UnicastServerRef.dispatch(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V+264 java.rmi@11.0.8
+j  sun.rmi.transport.Transport$1.run()Ljava/lang/Void;+23 java.rmi@11.0.8
+j  sun.rmi.transport.Transport$1.run()Ljava/lang/Object;+1 java.rmi@11.0.8
+v  ~StubRoutines::call_stub
+J 4907  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c39828bb3 [0x00007f5c39828b40+0x0000000000000073]
+j  sun.rmi.transport.Transport.serviceCall(Ljava/rmi/server/RemoteCall;)Z+157 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport.handleMessages(Lsun/rmi/transport/Connection;Z)V+145 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0()V+490 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0()Ljava/lang/Void;+1 java.rmi@11.0.8
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler$$Lambda$91.run()Ljava/lang/Object;+4 java.rmi@11.0.8
+v  ~StubRoutines::call_stub
+J 4935  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@11.0.8 (0 bytes) @ 0x00007f5c398386b3 [0x00007f5c39838640+0x0000000000000073]
+j  sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run()V+37 java.rmi@11.0.8
+j  java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V+92 java.base@11.0.8
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+5 java.base@11.0.8
+j  java.lang.Thread.run()V+11 java.base@11.0.8
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00007f5c4790c5b0
+
+Register to memory mapping:
+
+RAX=0x0000000000002965 is an unknown value
+RBX=0x00007f5c28171ee1 is pointing into the stack for thread: 0x00007f5be8005000
+RCX=0x00007f5c28171f00 is pointing into the stack for thread: 0x00007f5be8005000
+RDX=0x0000000000002965 is an unknown value
+RSP=0x00007f5c28171e30 is pointing into the stack for thread: 0x00007f5be8005000
+RBP=0x00007f5c28171e50 is pointing into the stack for thread: 0x00007f5be8005000
+RSI=0x0 is NULL
+RDI=0x00007f5c56e51030: <offset 0x0000000000008030> in /usr/lib/jvm/java-11-openjdk-amd64/lib/libjimage.so at 0x00007f5c56e49000
+R8 =0x00007f5c4790201c is an unknown value
+R9 =0x00007f5c28172cf0 is pointing into the stack for thread: 0x00007f5be8005000
+R10=0x00007f5c568d1e08: <offset 0x0000000000e46e08> in /usr/lib/jvm/java-11-openjdk-amd64/lib/server/libjvm.so at 0x00007f5c55a8b000
+R11=0x00007f5c28173058 is pointing into the stack for thread: 0x00007f5be8005000
+R12=0x00000000000083bc is an unknown value
+R13=0x00007f5c28171ee0 is pointing into the stack for thread: 0x00007f5be8005000
+R14=0x0 is NULL
+R15=0x00007f5c0c1e2960 points into unknown readable memory: 6a 61 76 61 2f 75 74 69
+
+
+Registers:
+RAX=0x0000000000002965, RBX=0x00007f5c28171ee1, RCX=0x00007f5c28171f00, RDX=0x0000000000002965
+RSP=0x00007f5c28171e30, RBP=0x00007f5c28171e50, RSI=0x0000000000000000, RDI=0x00007f5c56e51030
+R8 =0x00007f5c4790201c, R9 =0x00007f5c28172cf0, R10=0x00007f5c568d1e08, R11=0x00007f5c28173058
+R12=0x00000000000083bc, R13=0x00007f5c28171ee0, R14=0x0000000000000000, R15=0x00007f5c0c1e2960
+RIP=0x00007f5c56e4c0ad, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f5c28171e30)
+0x00007f5c28171e30:   0000000000000000 00007f5c28172f78
+0x00007f5c28171e40:   00007f5c50009710 00007f5c28171ee0
+0x00007f5c28171e50:   00007f5c28171ec0 00007f5c56e4cda2
+0x00007f5c28171e60:   0000557538725990 00007f5c562868f6 
+
+Instructions: (pc=0x00007f5c56e4c0ad)
+0x00007f5c56e4bfad:   f3 ff ff 44 03 65 90 e9 3f fe ff ff 0f 1f 80 00
+0x00007f5c56e4bfbd:   00 00 00 41 8b 10 41 89 55 00 41 8b 54 00 fc 41
+0x00007f5c56e4bfcd:   89 54 05 fc e9 82 fc ff ff 66 2e 0f 1f 84 00 00
+0x00007f5c56e4bfdd:   00 00 00 b9 0a 00 00 00 e9 f0 fc ff ff 41 0f b7
+0x00007f5c56e4bfed:   54 00 fe 66 41 89 54 05 fe e9 5d fc ff ff 0f 1f
+0x00007f5c56e4bffd:   44 00 00 f3 0f 1e fa 0f b6 17 89 f0 89 f1 4c 8d
+0x00007f5c56e4c00d:   47 01 84 d2 74 1c 0f 1f 44 00 00 69 c9 93 01 00
+0x00007f5c56e4c01d:   01 49 83 c0 01 31 d1 41 0f b6 50 ff 84 d2 75 eb
+0x00007f5c56e4c02d:   89 c8 25 ff ff ff 7f c3 90 66 2e 0f 1f 84 00 00
+0x00007f5c56e4c03d:   00 00 00 f3 0f 1e fa 48 85 d2 0f 84 da 00 00 00
+0x00007f5c56e4c04d:   55 48 89 e5 41 55 41 54 41 89 cc 53 48 83 ec 08
+0x00007f5c56e4c05d:   85 c9 0f 84 ba 00 00 00 49 89 f5 48 8d 5e 01 0f
+0x00007f5c56e4c06d:   b6 36 49 89 d0 40 84 f6 0f 84 9d 00 00 00 48 89
+0x00007f5c56e4c07d:   d9 b8 93 01 00 01 0f 1f 44 00 00 69 d0 93 01 00
+0x00007f5c56e4c08d:   01 48 83 c1 01 40 0f b6 c6 0f b6 71 ff 31 d0 40
+0x00007f5c56e4c09d:   84 f6 75 e7 25 ff ff ff 7f 31 d2 41 f7 f4 89 d0
+0x00007f5c56e4c0ad:   41 8b 34 80 48 8b 07 ff 50 20 85 c0 7f 15 74 62
+0x00007f5c56e4c0bd:   f7 d0 41 89 c0 48 83 c4 08 44 89 c0 5b 41 5c 41
+0x00007f5c56e4c0cd:   5d 5d c3 41 0f b6 4d 00 89 c6 84 c9 74 1b 0f 1f
+0x00007f5c56e4c0dd:   44 00 00 69 f6 93 01 00 01 48 83 c3 01 31 ce 0f
+0x00007f5c56e4c0ed:   b6 4b ff 84 c9 75 ec 89 f0 25 ff ff ff 7f 31 d2
+0x00007f5c56e4c0fd:   48 83 c4 08 41 f7 f4 5b 41 5c 41 5d 5d 41 89 d0
+0x00007f5c56e4c10d:   44 89 c0 c3 0f 1f
